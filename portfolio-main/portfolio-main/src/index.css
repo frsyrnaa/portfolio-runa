@@ -1,0 +1,243 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-headline: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Inter Variable", -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  --color-antique-paper: #F3E8D2;
+  --color-warm-parchment: #E8D7B8;
+  --color-paper-shadow: #D5C09B;
+  --color-red-wine: #722F37;
+  --color-deep-burgundy: #451D27;
+  --color-oxblood: #35151D;
+  --color-antique-gold: #B08D57;
+  --color-ink-black: #292421;
+  --color-muted-brown: #77685A;
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+/* Light Theme: Antique Paper & Red Wine */
+:root {
+  --background: #F3E8D2;
+  --foreground: #292421;
+  --card: #ECE1C7;
+  --card-foreground: #292421;
+  --popover: #E8D7B8;
+  --popover-foreground: #292421;
+  --primary: #722F37;
+  --primary-foreground: #F3E8D2;
+  --secondary: #E4D2B2;
+  --secondary-foreground: #451D27;
+  --muted: #E2CFAC;
+  --muted-foreground: #77685A;
+  --accent: #E8D7B8;
+  --accent-foreground: #35151D;
+  --destructive: #8B263E;
+  --border: #D5C09B;
+  --input: #D5C09B;
+  --ring: #B08D57;
+  --radius: 0.375rem;
+
+  --sidebar: #E8D7B8;
+  --sidebar-foreground: #292421;
+  --sidebar-primary: #722F37;
+  --sidebar-primary-foreground: #F3E8D2;
+  --sidebar-accent: #D5C09B;
+  --sidebar-accent-foreground: #35151D;
+  --sidebar-border: #D5C09B;
+  --sidebar-ring: #B08D57;
+}
+
+/* Dark Theme: Oxblood & Burgundy Leather */
+.dark {
+  --background: #190C10;
+  --foreground: #F1E5CF;
+  --card: #231118;
+  --card-foreground: #F1E5CF;
+  --popover: #2A141D;
+  --popover-foreground: #F1E5CF;
+  --primary: #B08D57;
+  --primary-foreground: #190C10;
+  --secondary: #35151D;
+  --secondary-foreground: #F1E5CF;
+  --muted: #2A131C;
+  --muted-foreground: #B5A18C;
+  --accent: #451D27;
+  --accent-foreground: #F1E5CF;
+  --destructive: #9C3348;
+  --border: rgba(176, 141, 87, 0.24);
+  --input: rgba(176, 141, 87, 0.28);
+  --ring: #C9A86E;
+
+  --sidebar: #231118;
+  --sidebar-foreground: #F1E5CF;
+  --sidebar-primary: #B08D57;
+  --sidebar-primary-foreground: #190C10;
+  --sidebar-accent: #35151D;
+  --sidebar-accent-foreground: #F1E5CF;
+  --sidebar-border: rgba(176, 141, 87, 0.24);
+  --sidebar-ring: #C9A86E;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Editorial Typography Helpers */
+.font-serif-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-serif-headline {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-mono-archival {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Subtle Antique Paper Grain Overlay */
+.paper-grain {
+  background-image: radial-gradient(rgba(41, 36, 33, 0.035) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.dark .paper-grain {
+  background-image: radial-gradient(rgba(243, 232, 210, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Vintage Ornamental Rules */
+.ornate-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.ornate-rule::before,
+.ornate-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, currentColor, transparent);
+  opacity: 0.35;
+}
+
+/* Refined Archival Border */
+.archival-box {
+  position: relative;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.archival-box::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid var(--border);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Vintage Double Line */
+.double-border-b {
+  border-bottom: 3px double var(--border);
+}
+
+.double-border-t {
+  border-top: 3px double var(--border);
+}
+
+/* Monogram Stamp */
+.wax-monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Custom Scrollbar for Vintage Feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B08D57;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #722F37;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

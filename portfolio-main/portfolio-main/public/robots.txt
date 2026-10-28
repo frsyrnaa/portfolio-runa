@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://yourportfolio.com/sitemap.xml
+Crawl-delay: 1
